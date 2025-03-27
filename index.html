@@ -89,9 +89,9 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: white;
-            border-radius: 12px;
+            border-radius: 13px; /* Rounded corners like in the screenshot */
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
             z-index: 1001;
             display: none;
             width: 80%;
@@ -101,35 +101,40 @@
 
         .popup h3 {
             margin-top: 0;
-            font-size: 18px;
-            text-align: center;
+            font-size: 17px;
+            font-weight: 600; /* Bold font weight */
+            margin-bottom: 5px; /* Reduced margin */
         }
 
         .popup p {
-            text-align: center;
+            font-size: 13px; /* Smaller font size */
+            color: #888; /* Gray color */
             margin-bottom: 20px;
         }
 
         .popup button {
             display: inline-block;
             width: 48%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            padding: 10px 15px; /* Padding to match screenshot */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
             cursor: pointer;
-            background-color: white;
-            font-size: 16px;
+            font-size: 17px;
+            font-weight: 400; /* Regular font weight */
             transition: background-color 0.2s ease-in-out;
             box-sizing: border-box; /* Important for consistent sizing */
             margin: 5px 0;
         }
 
-        .popup button:hover {
-            background-color: #f0f0f0;
+        .popup button:first-child {
+            background-color: #007AFF; /* Apple blue */
+            color: white;
         }
 
         .popup button:last-child {
             margin-left: 4%;
+            background-color: #e0e0e0; /* Light gray */
+            color: black;
         }
 
         .divider {
@@ -154,8 +159,7 @@
             <p>The president's focus on green energy has also led to a significant increase in the production of batteries, which are essential for storing all that intermittent solar and wind power. The only downside is that these batteries are so large and heavy that they require their own dedicated power plants to move them. But hey, at least we're creating jobs in the battery-moving sector, which is a niche market, but a market nonetheless. And let's not forget the environmental benefits of these batteries, which are so environmentally friendly that they require special disposal sites the size of small countries.</p>
             <p>In conclusion, President Biden's green energy revolution has been a resounding success, if you measure success in terms of paperwork, bird casualties, and the creation of niche job markets. The planet is surely grateful for the sacrifices we've made, even if it's not showing it yet. But give it time, the Earth works in mysterious ways, and who knows, maybe one day it will thank us for all the idle wind turbines and reflective solar panels.</p>
         </div>
-        <!-- Additional paragraphs would follow here in the same structure -->
-    </div>
+        </div>
 
     <script>
         // JavaScript for pop-ups
@@ -176,83 +180,4 @@
 
         for (let i = 0; i < 30; i++) {
             const popup = document.createElement('div');
-            popup.classList.add('popup');
-            popup.innerHTML = `
-                <h3>Low Battery</h3>
-                <p>20% battery remaining.</p>
-                <div class="divider"></div>
-                <button class="low-power-mode">Low Power Mode</button>
-                <button class="close-popup">Close</button>
-            `;
-            document.body.appendChild(popup);
-            popups.push(popup);
-
-            // Add event listeners to the buttons
-            const lowPowerButton = popup.querySelector('.low-power-mode');
-            const closeButton = popup.querySelector('.close-popup');
-
-            lowPowerButton.addEventListener('click', closePopup);
-            closeButton.addEventListener('click', closePopup);
-        }
-
-        window.onload = showNextPopup;
-
-        // JavaScript for context menu
-        const contextMenuButton = document.querySelector('.context-menu-button');
-        const contextMenu = document.querySelector('.context-menu');
-        let menuOpen = false;
-
-        contextMenuButton.addEventListener('click', () => {
-            if (menuOpen) {
-                contextMenu.classList.remove('open');
-            } else {
-                contextMenu.classList.add('open');
-            }
-            menuOpen = !menuOpen;
-        });
-
-        // Function to scroll to a paragraph
-        function scrollToParagraph(paragraphId) {
-            const element = document.getElementById(paragraphId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-            contextMenu.classList.remove('open');
-            menuOpen = false;
-        }
-
-        // Add buttons to the context menu
-        const paragraphHeadings = [
-            "Biden's Green Energy Revolution",
-            "The Great Solar Panel Debacle",
-            "Wind Turbines: A Feather in Biden's Cap",
-            "Electric Cars and the Gridlock",
-            "The Mythical Green Jobs Boom",
-            "Climate Summits and Empty Promises",
-            "The Cost of Going Green",
-            "Taxing the Air We Breathe",
-            "The Unstoppable Rise of Sea Levels",
-            "The Polar Bear's New Vacation Home",
-            "Melting Glaciers and Expanding Beaches",
-            "The Carbon Footprint of Biden's Motorcade",
-            "Eco-Friendly Wars",
-            "Recycling the Truth",
-            "The Green New Deal: A Fairy Tale",
-            "Biden's Climate Legacy: Hot Air",
-            "The Return of the Dinosaurs",
-            "Planting Trees and Burying Common Sense",
-            "The Greenest Graveyard",
-            "Biden's Climate Action: A Comedy of Errors"
-        ];
-
-        paragraphHeadings.forEach((heading, index) => {
-            const button = document.createElement('button');
-            button.textContent = heading;
-            button.addEventListener('click', () => {
-                scrollToParagraph(`paragraph${index + 1}`);
-            });
-            contextMenu.appendChild(button);
-        });
-    </script>
-</body>
-</html>
+            popup.classList.add
