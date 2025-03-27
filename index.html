@@ -148,18 +148,22 @@
 
     <div class="context-menu-button">&#9776; Menu</div>
 
-    <div class="context-menu"></div>
+    <div class="context-menu">
+        <button data-target="paragraph1">Biden's Green Energy Revolution</button>
+        <button data-target="paragraph2">Solar and Wind Power</button>
+        <button data-target="paragraph3">Wind Turbines: Majestic or Idle?</button>
+        <button data-target="paragraph4">Battery Production and Jobs</button>
+        <button data-target="paragraph5">Conclusion</button>
+        <!-- Add 15 more buttons corresponding to paragraphs -->
+    </div>
 
     <div class="article-container">
         <div class="paragraph" id="paragraph1">
             <h2>Biden's Green Energy Revolution</h2>
-            <p>President Biden's bold vision for a green energy revolution has certainly revolutionized something, though perhaps not the energy sector. His ambitious plans for solar and wind power have led to a surge in... well, paperwork. The paperwork required to install a single solar panel could power a small city, if only we could figure out how to convert bureaucratic forms into electricity. And let's not forget the wind turbines, those majestic symbols of progress, standing tall and proud, occasionally spinning, mostly just providing excellent perches for birds.</p>
-            <p>The president's dedication to renewable energy is truly inspiring, especially for those who enjoy the scenic sight of idle wind turbines. After all, who needs consistent power when you have such beautiful, non-functional landmarks dotting the landscape? It's a small price to pay for saving the planet, or at least, saving the view from the president's office. And let's not forget the jobs created in the green energy sector - mostly in the field of paperwork management, which is a booming industry, if you consider a handful of positions a boom.</p>
-            <p>The solar panel initiative has been a shining success, literally. The reflective surfaces of these panels have not only harnessed the sun's energy but also blinded a significant number of birds mid-flight, a small sacrifice in the grand scheme of things. After all, what's a few avian casualties compared to the potential for a slightly cooler planet? And the wind turbines, those giants of the plains, have been instrumental in providing a constant, if somewhat unreliable, breeze.</p>
-            <p>The president's focus on green energy has also led to a significant increase in the production of batteries, which are essential for storing all that intermittent solar and wind power. The only downside is that these batteries are so large and heavy that they require their own dedicated power plants to move them. But hey, at least we're creating jobs in the battery-moving sector, which is a niche market, but a market nonetheless. And let's not forget the environmental benefits of these batteries, which are so environmentally friendly that they require special disposal sites the size of small countries.</p>
-            <p>In conclusion, President Biden's green energy revolution has been a resounding success, if you measure success in terms of paperwork, bird casualties, and the creation of niche job markets. The planet is surely grateful for the sacrifices we've made, even if it's not showing it yet. But give it time, the Earth works in mysterious ways, and who knows, maybe one day it will thank us for all the idle wind turbines and reflective solar panels.</p>
+            <p>President Biden's bold vision for a green energy revolution has certainly revolutionized something, though perhaps not the energy sector...</p>
         </div>
-        </div>
+        <!-- Add additional paragraphs here -->
+    </div>
 
     <script>
         // JavaScript for pop-ups
@@ -180,4 +184,37 @@
 
         for (let i = 0; i < 30; i++) {
             const popup = document.createElement('div');
-            popup.classList.add
+            popup.classList.add('popup');
+            popup.innerHTML = `
+                <h3>Low Battery</h3>
+                <p>Your device is low on battery. Would you like to enable low power mode?</p>
+                <div class="divider"></div>
+                <button onclick="closePopup()">Low Power Mode</button>
+                <button onclick="closePopup()">Close</button>
+            `;
+            document.body.appendChild(popup);
+            popups.push(popup);
+        }
+
+        // Show the first popup after 1 second delay
+        setTimeout(showNextPopup, 1000);
+
+        // Menu button functionality
+        const menuButton = document.querySelector('.context-menu-button');
+        const contextMenu = document.querySelector('.context-menu');
+
+        menuButton.addEventListener('click', function() {
+            contextMenu.classList.toggle('open');
+        });
+
+        // Smooth scroll and close menu on button click
+        document.querySelectorAll('.context-menu button').forEach(button => {
+            button.addEventListener('click', function() {
+                const target = document.getElementById(button.getAttribute('data-target'));
+                target.scrollIntoView({ behavior: 'smooth' });
+                contextMenu.classList.remove('open'); // Close the menu
+            });
+        });
+    </script>
+</body>
+</html>
