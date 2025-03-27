@@ -40,12 +40,17 @@
             font-size: 28px;
             cursor: pointer;
             z-index: 1000;
+            padding: 10px;
+            background-color: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
         }
 
         .context-menu {
             position: fixed;
             top: 0;
-            right: -50%;
+            right: -100%;
             width: 50%;
             height: 100%;
             background-color: white;
@@ -90,6 +95,7 @@
             display: none;
             width: 80%;
             max-width: 300px;
+            text-align: center; /* Centering text */
         }
 
         .popup h3 {
@@ -134,7 +140,7 @@
 <body>
     <div class="banner">The Truth About Global Warming</div>
 
-    <div class="context-menu-button">&#9776;</div>
+    <div class="context-menu-button">&#9776; Menu</div>
 
     <div class="context-menu"></div>
 
