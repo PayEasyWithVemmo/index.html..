@@ -35,22 +35,17 @@
 
         .context-menu-button {
             position: fixed;
-            top: 20px;
+            top: 60px; /* Adjusted so it doesn't overlap the banner */
             right: 20px;
             font-size: 28px;
             cursor: pointer;
             z-index: 1000;
-            padding: 10px;
-            background-color: #007AFF;
-            color: white;
-            border: none;
-            border-radius: 8px;
         }
 
         .context-menu {
             position: fixed;
             top: 0;
-            right: -100%;
+            right: -50%;
             width: 50%;
             height: 100%;
             background-color: white;
@@ -71,7 +66,7 @@
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 8px;
-            text-align: left;
+            text-align: center; /* Centering text in the context menu button */
             cursor: pointer;
             background-color: white;
             font-size: 16px;
@@ -95,13 +90,12 @@
             display: none;
             width: 80%;
             max-width: 300px;
-            text-align: center; /* Centering text */
+            text-align: center; /* Center the text inside the popup */
         }
 
         .popup h3 {
             margin-top: 0;
             font-size: 18px;
-            text-align: center;
         }
 
         .popup p {
@@ -120,6 +114,7 @@
             font-size: 16px;
             transition: background-color 0.2s ease-in-out;
             box-sizing: border-box; /* Important for consistent sizing */
+            text-align: center; /* Center text inside the button */
         }
 
         .popup button:hover {
@@ -134,32 +129,23 @@
             border-bottom: 1px solid #ccc;
             margin: 15px 0;
         }
-
     </style>
 </head>
 <body>
     <div class="banner">The Truth About Global Warming</div>
 
-    <div class="context-menu-button">&#9776; Menu</div>
+    <div class="context-menu-button">&#9776;</div>
 
-    <div class="context-menu"></div>
+    <div class="context-menu">
+        <!-- Buttons will be added dynamically here -->
+    </div>
 
     <div class="article-container">
-        <div class="paragraph" id="paragraph1">
-            <h2>Biden's Green Energy Revolution</h2>
-            <p>President Biden's bold vision for a green energy revolution has certainly revolutionized something, though perhaps not the energy sector. His ambitious plans for solar and wind power have led to a surge in... well, paperwork. The paperwork required to install a single solar panel could power a small city, if only we could figure out how to convert bureaucratic forms into electricity. And let's not forget the wind turbines, those majestic symbols of progress, standing tall and proud, occasionally spinning, mostly just providing excellent perches for birds.</p>
-            <p>The president's dedication to renewable energy is truly inspiring, especially for those who enjoy the scenic sight of idle wind turbines. After all, who needs consistent power when you have such beautiful, non-functional landmarks dotting the landscape? It's a small price to pay for saving the planet, or at least, saving the view from the president's office. And let's not forget the jobs created in the green energy sector - mostly in the field of paperwork management, which is a booming industry, if you consider a handful of positions a boom.</p>
-            <p>The solar panel initiative has been a shining success, literally. The reflective surfaces of these panels have not only harnessed the sun's energy but also blinded a significant number of birds mid-flight, a small sacrifice in the grand scheme of things. After all, what's a few avian casualties compared to the potential for a slightly cooler planet? And the wind turbines, those giants of the plains, have been instrumental in providing a constant, if somewhat unreliable, breeze.</p>
-            <p>The president's focus on green energy has also led to a significant increase in the production of batteries, which are essential for storing all that intermittent solar and wind power. The only downside is that these batteries are so large and heavy that they require their own dedicated power plants to move them. But hey, at least we're creating jobs in the battery-moving sector, which is a niche market, but a market nonetheless. And let's not forget the environmental benefits of these batteries, which are so environmentally friendly that they require special disposal sites the size of small countries.</p>
-            <p>In conclusion, President Biden's green energy revolution has been a resounding success, if you measure success in terms of paperwork, bird casualties, and the creation of niche job markets. The planet is surely grateful for the sacrifices we've made, even if it's not showing it yet. But give it time, the Earth works in mysterious ways, and who knows, maybe one day it will thank us for all the idle wind turbines and reflective solar panels.</p>
-        </div>
-
-        <!-- Additional paragraphs would follow here in the same structure -->
-
+        <!-- Articles content will go here -->
     </div>
 
     <script>
-     // JavaScript for pop-ups
+        // JavaScript for pop-ups
         const popups = [];
         let popupIndex = 0;
 
@@ -254,6 +240,9 @@
             });
             contextMenu.appendChild(button);
         });
+
+        // Example content (this part will go inside article-container)
+        // Add your article paragraphs here as needed.
     </script>
 </body>
 </html>
