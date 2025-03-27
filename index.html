@@ -113,6 +113,7 @@
             background-color: white;
             font-size: 16px;
             transition: background-color 0.2s ease-in-out;
+            box-sizing: border-box; /* Important for consistent sizing */
         }
 
         .popup button:hover {
@@ -144,7 +145,7 @@
     <script>
         // JavaScript will be added in Part 2
     </script>
-  <!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -168,6 +169,20 @@
     <script>
         // JavaScript for pop-ups
         const popups = [];
+        let popupIndex = 0;
+
+        function showNextPopup() {
+            if (popupIndex < popups.length) {
+                popups[popupIndex].style.display = 'block';
+            }
+        }
+
+        function closePopup() {
+            popups[popupIndex].style.display = 'none';
+            popupIndex++;
+            setTimeout(showNextPopup, 1000); // 1-second delay
+        }
+
         for (let i = 0; i < 30; i++) {
             const popup = document.createElement('div');
             popup.classList.add('popup');
@@ -175,30 +190,18 @@
                 <h3>Low Battery</h3>
                 <p>20% battery remaining.</p>
                 <div class="divider"></div>
-                <button>Low Power Mode</button>
-                <button>Close</button>
+                <button class="low-power-mode">Low Power Mode</button>
+                <button class="close-popup">Close</button>
             `;
             document.body.appendChild(popup);
             popups.push(popup);
 
             // Add event listeners to the buttons
-            const buttons = popup.querySelectorAll('button');
-            buttons[0].addEventListener('click', () => {
-                // Add your "Low Power Mode" logic here (if needed)
-                popup.style.display = 'none';
-            });
-            buttons[1].addEventListener('click', () => {
-                popup.style.display = 'none';
-            });
-        }
+            const lowPowerButton = popup.querySelector('.low-power-mode');
+            const closeButton = popup.querySelector('.close-popup');
 
-        let popupIndex = 0;
-        function showNextPopup() {
-            if (popupIndex < popups.length) {
-                popups[popupIndex].style.display = 'block';
-                popupIndex++;
-                setTimeout(showNextPopup, 1000); // 1-second delay
-            }
+            lowPowerButton.addEventListener('click', closePopup);
+            closeButton.addEventListener('click', closePopup);
         }
 
         window.onload = showNextPopup;
@@ -260,7 +263,7 @@
             contextMenu.appendChild(button);
         });
     </script>
-  <!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -306,7 +309,7 @@
         <div class="paragraph" id="paragraph4">
             <h2>Electric Cars and the Gridlock</h2>
             <p>The electric car initiative, another ambitious component of President Biden's climate plan, has been a driving force, literally. These vehicles, powered by the latest in battery technology, have been instrumental in reducing our carbon footprint, or at least, shifting it to the power generation sector. The only downside is that these cars require special charging stations, which are so numerous that they have created a new form of gridlock, but hey, at least we're creating jobs in the charging station construction sector, which is a booming industry, if you consider a handful of positions a boom.</p>
-            <p>The efficiency of these cars has been remarkable, in that they have managed to travel almost as far as a gas-powered car, if you don't mind spending half your journey at a charging station. The occasional battery fire, due to the high-tech batteries, has been a small price to
+            <p>The efficiency of these cars has
 </body>
 </html>
 </body>
